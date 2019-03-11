@@ -26,4 +26,10 @@ Todas APIs contam com a documentação e possível teste via Swagger, necessitan
 
 - Descrição:
 Api para criar e buscar os dados das empresas.
-- Porta: 8089
+- Porta: 8081
+
+##### API de Clientes
+
+- Descrição:
+Api para criar e buscar os dados dos clientes,
+- Porta: 8082
