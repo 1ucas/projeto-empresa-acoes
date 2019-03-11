@@ -14,4 +14,4 @@ Projeto de uma empresa de Ações - Compra e Venda
 
 O modelo MACRO do sistema pode ser visto abaixo:
 
-![alt text](https://github.com/1ucas/projeto-empresa-acoes/prj-resources/DiagramaComponentes.png)
+![alt text](https://github.com/1ucas/projeto-empresa-acoes/blob/master/prj-resources/DiagramaComponentes.png)
