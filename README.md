@@ -20,7 +20,7 @@ O modelo MACRO do sistema pode ser visto abaixo:
 
 #### Componentes de Backend (APIs)
 
-Todas APIs contam com a documentação e possível teste via Swagger, necessitando adicionar apenas o sufixo ```**/swagger-ui.html**``` à rota de cada uma delas. Portanto, serão detalhadas apenas as características e os comportamentos de cada uma delas.
+Todas APIs contam com a documentação e possível teste via Swagger, necessitando adicionar apenas o sufixo ```/swagger-ui.html``` à rota de cada uma delas. Portanto, serão detalhadas apenas as características e os comportamentos de cada uma delas.
 
 ##### API de Empresas
 
