@@ -64,7 +64,7 @@ public class RabbitMQConfig implements RabbitListenerConfigurer {
     
     @Bean
     Exchange vendasExchange() {
-        return ExchangeBuilder.topicExchange(EXCHANGE_COMPRAS).build();
+        return ExchangeBuilder.topicExchange(EXCHANGE_VENDAS).build();
     }
  
     @Bean

@@ -21,60 +21,42 @@ import org.springframework.messaging.handler.annotation.support.MessageHandlerMe
 @Configuration
 public class RabbitMQConfig implements RabbitListenerConfigurer {
 
-	public static final String QUEUE_COMPRAS = "compras-queue";
-    public static final String EXCHANGE_COMPRAS = "compras-exchange";
     public static final String QUEUE_DEAD_COMPRAS = "dead-compras-queue";
+    public static final String EXCHANGE_DEAD_COMPRAS = "dead-compras-exchange";
     
-    public static final String QUEUE_VENDAS = "vendas-queue";
-    public static final String EXCHANGE_VENDAS = "vendas-exchange";
     public static final String QUEUE_DEAD_VENDAS = "dead-vendas-queue";
- 
-    @Bean
-    Queue comprasQueue() {
-    	return QueueBuilder.durable(QUEUE_COMPRAS)
-                .withArgument("x-dead-letter-exchange", "")
-                .withArgument("x-dead-letter-routing-key", QUEUE_DEAD_COMPRAS)
-                .withArgument("x-message-ttl", 3000) //if message is not consumed in 15 seconds send to DLQ
-                .build();
-    }
-    
-    @Bean
-    Queue vendasQueue() {
-    	return QueueBuilder.durable(QUEUE_VENDAS)
-                .withArgument("x-dead-letter-exchange", "")
-                .withArgument("x-dead-letter-routing-key", QUEUE_DEAD_VENDAS)
-                .withArgument("x-message-ttl", 3000) //if message is not consumed in 15 seconds send to DLQ
-                .build();
-    }
+    public static final String EXCHANGE_DEAD_VENDAS = "dead-vendas-exchange";
  
     @Bean
     Queue deadComprasQueue() {
-        return QueueBuilder.durable(QUEUE_DEAD_COMPRAS).build();
+    	return QueueBuilder.durable(QUEUE_DEAD_COMPRAS)
+                .build();
     }
     
     @Bean
     Queue deadVendasQueue() {
-        return QueueBuilder.durable(QUEUE_DEAD_COMPRAS).build();
+    	return QueueBuilder.durable(QUEUE_DEAD_VENDAS)
+                .build();
     }
  
     @Bean
-    Exchange comprasExchange() {
-        return ExchangeBuilder.topicExchange(EXCHANGE_COMPRAS).build();
+    Exchange deadComprasExchange() {
+        return ExchangeBuilder.topicExchange(EXCHANGE_DEAD_COMPRAS).build();
     }
     
     @Bean
-    Exchange vendasExchange() {
-        return ExchangeBuilder.topicExchange(EXCHANGE_VENDAS).build();
+    Exchange deadVendasExchange() {
+        return ExchangeBuilder.topicExchange(EXCHANGE_DEAD_VENDAS).build();
     }
  
     @Bean
-    Binding comprasBinding(Queue comprasQueue, TopicExchange comprasExchange) {
-        return BindingBuilder.bind(comprasQueue).to(comprasExchange).with(QUEUE_COMPRAS);
+    Binding deadComprasBinding(Queue deadComprasQueue, TopicExchange deadComprasExchange) {
+        return BindingBuilder.bind(deadComprasQueue).to(deadComprasExchange).with(QUEUE_DEAD_COMPRAS);
     }
     
     @Bean
-    Binding vendasBinding(Queue vendasQueue, TopicExchange vendasExchange) {
-        return BindingBuilder.bind(vendasQueue).to(vendasExchange).with(QUEUE_VENDAS);
+    Binding deadVendasBinding(Queue deadVendasQueue, TopicExchange deadVendasExchange) {
+        return BindingBuilder.bind(deadVendasQueue).to(deadVendasExchange).with(QUEUE_DEAD_VENDAS);
     }
     
     @Bean
