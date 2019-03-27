@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import self.manobray.empresaapi.domain.Acao;
+import self.manobray.empresaapi.domain.InputCreateAcoes;
 import self.manobray.empresaapi.services.AcoesService;
 
 @Api("Api de Acoes")
@@ -29,7 +30,7 @@ public class AcoesController {
         this.acoesService = acoesService;
 	}
 	
-	@ApiOperation(value = "Ver a lista de empresas", notes="Retorna a lista de todas as empresas.")
+	@ApiOperation(value = "Ver a lista de ações", notes="Retorna a lista de todas as ações.")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Acao> getAll(){
@@ -43,10 +44,10 @@ public class AcoesController {
         return acoesService.getById(id);
     }
 	
-	@ApiOperation(value = "Cria uma nova empresa", notes = "Não é necessário informar o Id da empresa durante a criação.")
+	@ApiOperation(value = "Cria uma nova ação", notes = "Não é necessário informar o Id da ação durante a criação.")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String create(@RequestBody Acao empresa){
-        return acoesService.createNew(empresa);
+    public String create(@RequestBody InputCreateAcoes input){
+        return acoesService.createNew(input);
     }
 }

@@ -4,19 +4,20 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import self.manobray.rabbitmq.config.RabbitMQConfig;
+import self.manobray.rabbitmq.domain.Ordem;
 import self.manobray.rabbitmq.domain.Message;
 
 @Service
 public class ComprasServiceImpl implements ComprasService{
 
-	private final RabbitTemplate rabbitTemplate;
+	private final RabbitTemplate import self.manobray.rabbitmq.domain.Ordem;;
 	 
     public ComprasServiceImpl(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
     
     @Override
-    public void sendMessage(Message message) {
-        this.rabbitTemplate.convertAndSend(RabbitMQConfig.QUEUE_COMPRAS, message);
+    public void sendMessage(Ordem order) {
+        this.rabbitTemplate.convertAndSend(RabbitMQConfig.QUEUE_COMPRAS, order);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import self.manobray.rabbitmq.config.RabbitMQConfig;
 import self.manobray.rabbitmq.domain.Message;
+import self.manobray.rabbitmq.domain.Ordem;
 
 @Component
 public class VendasListener {
@@ -14,9 +15,9 @@ public class VendasListener {
 	static final Logger logger = LoggerFactory.getLogger(VendasListener.class);
 
     @RabbitListener(queues = RabbitMQConfig.QUEUE_VENDAS)
-    public void processMessage(Message message) {
+    public void processMessage(Ordem order) {
         logger.info("Compras Api Ouviu:");
-        logger.info("Subject:" + message.getSubject());
-        logger.info("Body:" + message.getBody());
+        logger.info("Subject: acao de Id" + order.getUserId());
+        logger.info("Body:" + order.getAcaoPrice());
     }
 }

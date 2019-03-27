@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import self.manobray.rabbitmq.config.EmailConfig;
 import self.manobray.rabbitmq.domain.Message;
 
 @Service
@@ -17,5 +18,6 @@ public class EmailServiceImpl implements EmailService{
     	logger.info("Email Processor Ouviu:");
         logger.info("Subject:" + message.getSubject());
         logger.info("Body:" + message.getBody());
+        new EmailConfig().sendEmail(message.getSubject(), message.getBody());
     }
 }

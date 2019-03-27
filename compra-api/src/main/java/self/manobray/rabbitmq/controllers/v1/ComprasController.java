@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import self.manobray.rabbitmq.domain.Message;
+import self.manobray.rabbitmq.domain.Ordem;
 import self.manobray.rabbitmq.services.ComprasService;
 
 @Api("Api de Compra de Acoes")
@@ -28,8 +29,8 @@ public class ComprasController {
 	@ApiOperation(value = "Cria uma nova ordem de compra", notes="Cria uma nova ordem de compra de cliente.")
 	@PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String createNewGarage(@RequestBody Message message){
-		comprasService.sendMessage(message);
+    public String createNewGarage(@RequestBody Ordem order){
+		comprasService.sendMessage(order);
         return "Message sent";
     }
 }
