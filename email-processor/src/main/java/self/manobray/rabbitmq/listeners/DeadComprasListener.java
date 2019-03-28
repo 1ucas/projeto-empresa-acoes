@@ -19,9 +19,14 @@ public class DeadComprasListener {
 
 	@RabbitListener(queues = RabbitMQConfig.QUEUE_DEAD_COMPRAS)
     public void processMessage(Ordem ordemMorta) {
-		EmailInput emailInput = new EmailInput();
-		emailInput.setDestination(ordemMorta.getUserId());
-		emailInput.setMessage("A sua ordem de compra foi rejeitada.");
-		emailService.sendEmail(emailInput);
+		try {
+			EmailInput emailInput = new EmailInput();
+			emailInput.setDestination(ordemMorta.getUserId());
+			emailInput.setMessage("A sua ordem de compra foi rejeitada.");
+			emailService.sendEmail(emailInput);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }
