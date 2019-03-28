@@ -36,7 +36,7 @@ public class ComprasListener {
         for (Ordem ordemVenda : ordensDeVendaEmAberto) {
 			if(ordemVenda.getAcaoId().equals(ordemCompraAProcessar.getAcaoId()) &&
 					ordemVenda.getDesiredPrice() <= ordemCompraAProcessar.getDesiredPrice()) {
-				atualizarAcao(ordemCompraAProcessar);
+				atualizarAcao(ordemCompraAProcessar, ordemVenda);
 				ordersRepository.delete(ordemVenda);
 				emailRepository.sendBasicEmail(ordemCompraAProcessar.getUserId(), "Comprou acao por " + ordemCompraAProcessar.getDesiredPrice());
 				emailRepository.sendBasicEmail(ordemVenda.getUserId(), "Vendeu acao por " + ordemVenda.getDesiredPrice());
@@ -46,9 +46,9 @@ public class ComprasListener {
         this.ordersRepository.save(ordemCompraAProcessar);
     }
     
-    private void atualizarAcao(Ordem ordemCompraAProcessar) {
+    private void atualizarAcao(Ordem ordemCompraAProcessar, Ordem ordemVenda) {
 		Acao acao = acoesRepository.findById(ordemCompraAProcessar.getAcaoId()).get();
-		acao.setActualValue(ordemCompraAProcessar.getDesiredPrice());
+		acao.setActualValue(ordemVenda.getDesiredPrice()); 
 		acao.setLastTransaction(new Date());
 		acao.setOwnerId(ordemCompraAProcessar.getUserId());
 		acoesRepository.save(acao);
