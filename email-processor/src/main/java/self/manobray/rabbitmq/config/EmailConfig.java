@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailConfig {
 	
 	final String fromEmail = "testemanobray@gmail.com";
-	final String password = "";
+	final String password = ""; 
 	final String toEmail = "testemanobray@gmail.com";
 	
 	public Properties getProperties() throws IOException {
