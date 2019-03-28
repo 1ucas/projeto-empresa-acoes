@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import self.manobray.rabbitmq.domain.Message;
+import self.manobray.rabbitmq.domain.EmailInput;
 import self.manobray.rabbitmq.services.EmailService;;
 
 @Api("Api de envio de Emails")
@@ -28,7 +28,7 @@ public class EmailsController {
 	@ApiOperation(value = "Envia um email com assunto e corpo", notes = "")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Message mensagem){
-		emailService.sendEmail(mensagem);
+    public void create(@RequestBody EmailInput input){
+		emailService.sendEmail(input);
     }
 }

@@ -1,8 +1,8 @@
 package self.manobray.rabbitmq.services;
 
-import self.manobray.rabbitmq.domain.Message;
+import self.manobray.rabbitmq.domain.EmailInput;
 
 public interface EmailService {
 
-	void sendEmail(Message message);
+	void sendEmail(EmailInput input);
 }

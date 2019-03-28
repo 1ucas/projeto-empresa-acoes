@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>self.manobray</groupId>
-	<artifactId>email-processor</artifactId>
+	<artifactId>transacoes-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>email-processor</name>
-	<description>Processador de transações não efetuadas</description>
+	<name>compras-api</name>
+	<description>API de Transacoes - Compra e Venda - de Acoes</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -30,13 +30,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
-		
-		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>javax.mail</artifactId>
-			<version>1.6.1</version>
-		</dependency>
-	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>

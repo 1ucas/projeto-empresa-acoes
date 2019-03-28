@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailConfig {
 	
 	final String fromEmail = "testemanobray@gmail.com";
-	final String password = "HAHAHA123";
+	final String password = "POLOLO123";
 	final String toEmail = "testemanobray@gmail.com";
 	
 	public Properties getProperties() throws IOException {
@@ -39,6 +39,26 @@ public class EmailConfig {
 			inputStream.close();
 		}
 		return null;
+	}
+	
+	public void sendBasicEmail(String toEmail,
+			String mensagem) {
+		try {
+		Authenticator auth = configAuth(fromEmail, password);
+		Session session = Session.getInstance(getProperties(), auth);
+		
+		MimeMessage message = new MimeMessage(session);
+		configHeaders(message);
+		System.out.println("Headers");
+		configContent(toEmail, "Email Automático", mensagem, message);
+		System.out.println("Conteudo");
+		
+		Transport.send(message);
+		
+		System.out.println("Enviou");
+		} catch(Exception e) {
+		System.out.println(e);
+		}
 	}
 	
 	public void sendEmail(String subject,

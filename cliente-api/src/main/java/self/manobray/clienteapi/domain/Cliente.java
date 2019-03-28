@@ -15,4 +15,6 @@ public class Cliente {
 	private String id;
 	
 	private String name;
+	
+	private String email;
 }
