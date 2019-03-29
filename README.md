@@ -39,7 +39,6 @@ A recomendação é utilizar a imagem do Docker do RabbitMQ através do comando:
 
 Todas APIs contam com a documentação e possível teste via Swagger, necessitando adicionar apenas o sufixo ```/swagger-ui.html``` à rota de cada uma delas. Portanto, serão detalhadas apenas as características e os comportamentos de cada uma delas. 
 A configuração do Build e Deploy das APIs está sendo feita através do Maven, lendo as dependências do arquivo POM.
-Para o correto funcionamento da API de email é necessário configurar a classe EmailConfig com o devido usuário e senha do EMAIL que disparará as mensagens.
 
 ##### API de Empresas
 
@@ -80,7 +79,7 @@ Api para criar e buscar os dados das ações. Uma empresa pode emitir quantas a�
 ##### API de Email
 
 - Descrição:
-Api para envio de emails. Esta API funciona de forma ativa quando é chamada pela API de transações para enviar o email de sucesso nas ordens de compra e venda das ações. Além disso, esta API funciona também de forma passiva através de um Listener do RabbitMQ. Quando uma ordem cai para a fila de mensagens mortas (ou seja, o Listener responsável por essa mensagem não estiver funcionando corretamente), o usuário responsável pela ordem é notificado que houve um problema em sua ordem e ela não foi processada.
+Api para envio de emails. Esta API funciona de forma ativa quando é chamada pela API de transações para enviar o email de sucesso nas ordens de compra e venda das ações. Além disso, esta API funciona também de forma passiva através de um Listener do RabbitMQ. Quando uma ordem cai para a fila de mensagens mortas (ou seja, o Listener responsável por essa mensagem não estiver funcionando corretamente), o usuário responsável pela ordem é notificado que houve um problema em sua ordem e ela não foi processada. Para o correto funcionamento da API de email é necessário configurar a classe EmailConfig com o devido usuário e senha do EMAIL que disparará as mensagens.
 - Porta: 8086
 
 
