@@ -81,6 +81,8 @@ Api para criar e buscar os dados das ações. Uma empresa pode emitir quantas a�
 - Descrição:
 Api para envio de emails. Esta API funciona de forma ativa quando é chamada pela API de transações para enviar o email de sucesso nas ordens de compra e venda das ações. Além disso, esta API funciona também de forma passiva através de um Listener do RabbitMQ. Quando uma ordem cai para a fila de mensagens mortas (ou seja, o Listener responsável por essa mensagem não estiver funcionando corretamente), o usuário responsável pela ordem é notificado que houve um problema em sua ordem e ela não foi processada. Para o correto funcionamento da API de email é necessário configurar a classe EmailConfig com o devido usuário e senha do EMAIL que disparará as mensagens.
 - Porta: 8086
+- Principais Operações:
+   * POST: envia o email com os dados recebidos
 
 
 ### Exemplo de Funcionamento do Fluxo Principal
