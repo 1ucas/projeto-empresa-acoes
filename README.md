@@ -39,6 +39,7 @@ A recomendação é utilizar a imagem do Docker do RabbitMQ através do comando:
 
 Todas APIs contam com a documentação e possível teste via Swagger, necessitando adicionar apenas o sufixo ```/swagger-ui.html``` à rota de cada uma delas. Portanto, serão detalhadas apenas as características e os comportamentos de cada uma delas. 
 A configuração do Build e Deploy das APIs está sendo feita através do Maven, lendo as dependências do arquivo POM.
+Para o correto funcionamento da API de email é necessário configurar a classe EmailConfig com o devido usuário e senha do EMAIL que disparará as mensagens.
 
 ##### API de Empresas
 
