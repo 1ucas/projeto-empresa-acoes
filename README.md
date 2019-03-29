@@ -45,24 +45,36 @@ A configuração do Build e Deploy das APIs está sendo feita através do Maven,
 - Descrição:
 Api para criar e buscar os dados das empresas.
 - Porta: 8081
+- Principais Operações:
+   * GET: lista todas as empresas
+   * POST: cria uma nova empresa
 
 ##### API de Clientes
 
 - Descrição:
 Api para criar e buscar os dados dos clientes.
 - Porta: 8082
+- Principais Operações:
+   * GET: lista todos os clientes
+   * POST: cria um novo cliente
 
 ##### API de Transações
 
 - Descrição:
 Api para realizar as transações de compra e venda.
 - Porta: 8082
+- Principais Operações:
+   * POST (/compras): cria uma nova ordem de compra de ação
+   * POST (vendas): cria uma nova ordem de venda de ação (somente o dono da ação pode executar a operação)
 
 ##### API de Ações
 
 - Descrição:
 Api para criar e buscar os dados das ações.
 - Porta: 8085
+- Principais Operações:
+   * GET: lista todas as ações
+   * POST: cria uma nova ação
 
 ##### API de Email
 
