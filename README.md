@@ -1,4 +1,4 @@
-# Projeto Empresa de Ações
+# Projeto Empresa de Ações - Aluno: Lucas Maciel
 
 ## Descrição
 
