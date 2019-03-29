@@ -24,7 +24,7 @@ Neste projeto está sendo utilizado o banco não relacional MongoDB.
 
 A recomendação é utilizar a imagem do Docker do Mongo através do comando:
 
-```docker run -p 27017:27017 --name mongodb -d mongo```
+``` docker run -p 27017:27017 --name mongodb -d mongo ```
 
 #### Fila de Comunicação Assíncrona
 
@@ -32,8 +32,7 @@ A fila escolhida para o projeto foi o RabbitMQ.
 
 A recomendação é utilizar a imagem do Docker do RabbitMQ através do comando:
 
-```docker run -d --hostname rabbitmq --name rabbitmq-management -p 15672:15672 -p
-5671:5671 -p 5672:5672 rabbitmq:management```
+``` docker run -d --hostname rabbitmq --name rabbitmq-management -p 15672:15672 -p 5671:5671 -p 5672:5672 rabbitmq:management ```
 
 #### Componentes de Backend (APIs)
 
