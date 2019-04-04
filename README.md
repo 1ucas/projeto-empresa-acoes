@@ -62,7 +62,7 @@ Api para criar e buscar os dados dos clientes.
 
 - Descrição:
 Api para realizar as transações de compra e venda. Seu funcionamento é o **core** do sistema. Aqui se concentram as regras de compra e venda de ação, bem como os serviços e listeners que vão gravar e escutar a fila de mensagens de ordens. Esta API também realiza conexões com a coleção de clientes para buscar seus dados de contatos e a coleção de ações para atualizar seus dados. Um Comprador pode possuir várias ações. Portanto um mesmo comprador pode chamar várias vezes a rota de compras.
-- Porta: 8082
+- Porta: 8083
 - Principais Operações:
    * POST (/compras): cria uma nova ordem de compra de ação
    * POST (/vendas): cria uma nova ordem de venda de ação (somente o dono da ação pode executar a operação)

@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class RestClient {
 
-  private String server = "http://localhost:8084";
+  private String server = "http://localhost:8086";
   private RestTemplate rest;
   private HttpHeaders headers;
   private HttpStatus status;
